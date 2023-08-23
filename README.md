@@ -5,7 +5,7 @@ it seems I never find a Job BUT leaving ther made us stubborn so I want to trans
 I want to start a self learning course (base on my own R&D not any specific online course) to getting familar with IAC technologies. So, this Is my plan:
 - I will try to share my experiances and researh result like story. (I guess it could be fun, lets try!!!) 💤
 - I am a Back-end developer  mainly focused on (C#, PHP) but In this course I proissed to myself to donot use these two language my new condidates are amoung this
- list (GO lang , Python , NodeJs or maybe Rust) this helps me to learn some new programming languages and push me more out of my confort zone 😜
+ list (GO lang , Python , NodeJs, JAVA or maybe Rust) this helps me to learn some new programming languages and push me more out of my confort zone 😜
 - Because I am leaving in Iran and as Iranian modern human we are facxed with a long list of sanctions and restrictions So there is no real cloud service provider available 💥
 - According to previous item I should learn How can I compose a cloud system on my local machine. maybe using K8s. But I do not know exactly I will share the result in future 😄
 - After finding that th running cloud on local machine is possible or not I will start my development phase: 🎉
