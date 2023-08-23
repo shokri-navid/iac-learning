@@ -17,3 +17,18 @@ I want to start a self learning course (base on my own R&D not any specific onli
 -----
 ## First Step:
 **IAC??? What is that?😳**
+Based on my understanding, IaC is a way to automate efforts for providing infrustracture and service deployment. when you want to deploy a service you should take these steps:
+1 - Make ready some machines to provide your prerequests services like Database, Message brokers and so on. 
+2 - Deploy your prerequesties. 
+3 - Implement the network topography fo your services to make them visible or invisible from each other.
+4 - create Machin redy for your developed service and deploy it. 
+So you should Done all this time conuming work manually by yiur hand. regardless of these long stories and repeating them for many other upcomming services 
+there is another furious monster waiting for you 😆 **maintenance and modification**.
+
+So, what can we do to fight with all of these time consuming task? 
+Using templates and tools to automate all of these steps. So, there you are. it is ***IAC*** the great ⚔️
+so there is two approach for implementing youe desired mesh of machines: (when I am talking about machine I mean Machines with all kind of prerequesties those are necessary to provide the final service to the beloved customer 🤗)
+1- Declrative: describe your desiered state of machines
+2- Imprative: descraibe the steps those have to be taken to build that desired state of machines. 
+
+
