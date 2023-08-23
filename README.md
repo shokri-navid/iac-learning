@@ -43,3 +43,9 @@ so there is two approach for implementing youe desired mesh of machines: (when I
 2. Imprative: descraibe the steps those have to be taken to build that desired state of machines. 
 
 
+-----
+References:
+- https://www.redhat.com/en/topics/automation/what-is-infrastructure-as-code-iac
+- https://opensource.com/article/19/3/home-lab
+- https://opensource.com/article/19/7/infrastructure-code
+
