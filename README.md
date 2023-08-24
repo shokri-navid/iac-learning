@@ -42,6 +42,19 @@ so there is two approach for implementing youe desired mesh of machines: (when I
 1. Declrative: describe your desiered state of machines
 2. Imprative: descraibe the steps those have to be taken to build that desired state of machines. 
 
+## Conclusion:
+
+So, After a while research and surfing the internet I found tath there is a lot of IaC tools available:
+1- terraform
+2- Ansible
+3- AWS CloudFormation.
+4- Azure Resource Manager.
+5- Google Cloud Deployment Manager, ...
+
+So, May I am wrong but terraform was more intresting for myself because it was multiplatform that means you can use it for many technologies from Docker and K8S to Google cloud provider and other cloud provider services. Also it is Opensource and we love opensource things because they can last longer when you are living in a totally sanctioned country like Iran.
+
+So Until now I will use terraform from now and I will start with its docker feature. because I found that IaC is very coupled with virtualization and environments those contains multiple Vitulized servers. abviuosly I cannot preper such enviroment for myself because of budget but who knows may One day I run my own data center with dozen real G10 Servers.
+I will start with docker and then I will continue on K8S 😃
 
 -----
 References:
