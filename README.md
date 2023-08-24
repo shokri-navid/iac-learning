@@ -57,6 +57,16 @@ So Until now I will use terraform from now and I will start with its docker feat
 I will start with docker and then I will continue on K8S 😃
 
 -----
+## Second Step:
+
+I need to create multiple services and then create some docker images in base on thos services and finally run this mesh of services using IaC:
+My microservice application will contains these building block:
+
+1- user service that is responsible for maintian users (written in python)
+2- product service that manage all products (written in go)
+3- order service that handle all orders related services (written in java spring)
+
+-----
 References:
 - https://www.redhat.com/en/topics/automation/what-is-infrastructure-as-code-iac
 - https://opensource.com/article/19/3/home-lab
