@@ -60,7 +60,7 @@ I will start with docker and then I will continue on K8S 😃
 ## Second Step:
 
 I need to create multiple services and then create some docker images based on those services and finally run this mesh of services using IaC:
-My microservice application will contain these building blocks:
+My microservice application will contain these building blocks (they will not connect to database at first step but may I add database persistanse abilty to them in the future):
 
 1. User service that is responsible for maintaining users (written in python)
 2. product service that manages all products (written in go)
