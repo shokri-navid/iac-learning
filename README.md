@@ -45,11 +45,11 @@ so there is two approach for implementing youe desired mesh of machines: (when I
 ## Conclusion:
 
 So, After a while research and surfing the internet I found tath there is a lot of IaC tools available:
-1- terraform
-2- Ansible
-3- AWS CloudFormation.
-4- Azure Resource Manager.
-5- Google Cloud Deployment Manager, ...
+1. terraform
+2. Ansible
+3. AWS CloudFormation.
+4. Azure Resource Manager.
+5. Google Cloud Deployment Manager, ...
 
 So, May I am wrong but terraform was more intresting for myself because it was multiplatform that means you can use it for many technologies from Docker and K8S to Google cloud provider and other cloud provider services. Also it is Opensource and we love opensource things because they can last longer when you are living in a totally sanctioned country like Iran.
 
@@ -62,9 +62,9 @@ I will start with docker and then I will continue on K8S 😃
 I need to create multiple services and then create some docker images in base on thos services and finally run this mesh of services using IaC:
 My microservice application will contains these building block:
 
-1- user service that is responsible for maintian users (written in python)
-2- product service that manage all products (written in go)
-3- order service that handle all orders related services (written in java spring)
+1. user service that is responsible for maintian users (written in python)
+2. product service that manage all products (written in go)
+3. order service that handle all orders related services (written in java spring)
 
 -----
 References:
