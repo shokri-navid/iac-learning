@@ -35,8 +35,8 @@ browse the http://localhost:8000/docs to see the OpenAPI documentation.
 
 ### Docker build  
 
-> Docker Build -t user-service .
+> docker build -t user-service .
 
 ### Docker Run
 
-> docker run -d -h localhost -name my-user-service user-service
+> docker run -d -p 8000:8000 --name my-user-service user-service
