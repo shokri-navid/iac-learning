@@ -9,17 +9,21 @@ terraform {
 
 provider "docker" {}
 
-resource "docker_image" "nginx" {
-  name         = "nginx"
-  keep_locally = false
+resource "docker_image" "user_service" {
+  name = "user_service"
+  build {
+    context    = "../eshop/user_service"
+    dockerfile = "Dockerfile"
+  }
+  #keep_locally = false
 }
 
-resource "docker_container" "nginx" {
-  image = docker_image.nginx.image_id
-  name  = "tutorial"
+resource "docker_container" "my_user_service" {
+  image = docker_image.user_service.name
+  name  = "my_user_service"
 
   ports {
-    internal = 80
-    external = 8001
+    internal = 8000
+    external = 8000
   }
 }
