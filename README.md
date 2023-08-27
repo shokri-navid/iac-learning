@@ -82,3 +82,4 @@ References:
 - <https://opensource.com/article/19/3/home-lab>
 - <https://opensource.com/article/19/7/infrastructure-code>
 - <https://sweetcode.io/leverage-terraform-to-automate-docker-images-and-container-builds>
+- <https://github.com/localstack/localstack>
