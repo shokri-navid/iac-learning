@@ -84,3 +84,4 @@ References:
 - <https://sweetcode.io/leverage-terraform-to-automate-docker-images-and-container-builds>
 - <https://github.com/localstack/localstack>
 - <https://go.dev/doc/tutorial/web-service-gin>
+- <https://github.com/swaggo/gin-swagger>
