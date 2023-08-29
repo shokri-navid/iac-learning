@@ -1,0 +1,161 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/products": {
+            "get": {
+                "description": "get list Of products in werehouse",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "get all products",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Add new product to list",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Add product",
+                "parameters": [
+                    {
+                        "description": "body",
+                        "name": "addProductRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/main.addProductRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/products/{id}": {
+            "get": {
+                "description": "returns a spesific item in werehouse",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "get products by Id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "9d109467-4d0d-4faf-9c0b-224b94b39ee0",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "reduce the remaining items in werehouse",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "sale product",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "9d109467-4d0d-4faf-9c0b-224b94b39ee0",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "count of sold items",
+                        "name": "saleProductRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/main.saleProductRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "delete the product from werehouse",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "delete product",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "9d109467-4d0d-4faf-9c0b-224b94b39ee0",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "main.addProductRequest": {
+            "type": "object",
+            "properties": {
+                "category": {
+                    "type": "string"
+                },
+                "count": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "main.saleProductRequest": {
+            "type": "object",
+            "properties": {
+                "quantity": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

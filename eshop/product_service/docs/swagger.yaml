@@ -1,0 +1,104 @@
+definitions:
+  main.addProductRequest:
+    properties:
+      category:
+        type: string
+      count:
+        type: integer
+      name:
+        type: string
+    type: object
+  main.saleProductRequest:
+    properties:
+      quantity:
+        type: integer
+    type: object
+info:
+  contact: {}
+paths:
+  /products:
+    get:
+      description: get list Of products in werehouse
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: get all products
+    post:
+      consumes:
+      - application/json
+      description: Add new product to list
+      parameters:
+      - description: body
+        in: body
+        name: addProductRequest
+        required: true
+        schema:
+          $ref: '#/definitions/main.addProductRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Add product
+  /products/{id}:
+    delete:
+      description: delete the product from werehouse
+      parameters:
+      - description: 9d109467-4d0d-4faf-9c0b-224b94b39ee0
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: delete product
+    get:
+      description: returns a spesific item in werehouse
+      parameters:
+      - description: 9d109467-4d0d-4faf-9c0b-224b94b39ee0
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: get products by Id
+    put:
+      description: reduce the remaining items in werehouse
+      parameters:
+      - description: 9d109467-4d0d-4faf-9c0b-224b94b39ee0
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: count of sold items
+        in: body
+        name: saleProductRequest
+        required: true
+        schema:
+          $ref: '#/definitions/main.saleProductRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: sale product
+swagger: "2.0"
