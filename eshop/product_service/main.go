@@ -156,6 +156,7 @@ func saleProduct(c *gin.Context){
 	var q saleProductRequest;
 	if err := c.Bind(&q); err !=nil{
 		c.IndentedJSON(http.StatusBadRequest, response {Success: false, Error: err.Error()});
+		return;
 	}
 	index := getIndexById(id);
 	if index >= 0 {
@@ -168,6 +169,7 @@ func saleProduct(c *gin.Context){
 		return;
 	}
 	c.IndentedJSON(http.StatusNotFound, response{Success: false, Error: "item not found"});
+	return;
 }
 
 func removeIndex(s []product, index int) []product {

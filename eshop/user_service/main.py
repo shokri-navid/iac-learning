@@ -6,7 +6,7 @@ import json
 app = FastAPI()
 userList = []
 
-@app.get("/item/{id}")
+@app.get("/users/{id}")
 async def get_item(id):
     user = findById(id)
     if user != None:
@@ -15,12 +15,12 @@ async def get_item(id):
     #return {"data": json.dumps([obj.__dict__ for obj in  userList], default= str)}
 
 
-@app.get("/all")
+@app.get("/users")
 async def get_all():
     return {"data": json.dumps([obj.__dict__ for obj in  userList], default= str)}
 
 
-@app.post("/test")
+@app.post("/users")
 async def add(dto: AddUserDto):
     if len(dto.name) == 0 or len(dto.family) == 0 :
         raise HTTPException(400, {"message" : "name and family are required."})
@@ -30,7 +30,7 @@ async def add(dto: AddUserDto):
     return {"data": user.id}
 
 
-@app.delete("/item/{id}")
+@app.delete("/users/{id}")
 async def delete_item(id):
     user = findById(id)
     if user != None:
