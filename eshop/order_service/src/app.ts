@@ -2,8 +2,8 @@ import express, {Request, Response, Application} from "express";
 import * as dotenv  from "dotenv"
 import {AddOrderRequest} from "./models/AddOrderRequest";
 import { Order } from "./models/Order";
-import { constrainedMemory } from "process";
 
+dotenv.config();
 var app : Application = express();
 var port : number = 3000;
 
