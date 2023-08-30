@@ -85,3 +85,4 @@ References:
 - <https://github.com/localstack/localstack>
 - <https://go.dev/doc/tutorial/web-service-gin>
 - <https://github.com/swaggo/gin-swagger>
+- <https://www.acuriousanimal.com/blog/20181020/express-swagger-doc>
