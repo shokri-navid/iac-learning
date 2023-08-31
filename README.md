@@ -46,7 +46,7 @@ IaC puts these benefits on the table:
 So there is two approach for implementing your desired mesh of machines: (When I am talking about machine I mean Machines with all kind of prerequisites those are necessary to provide the final service to the beloved customer 🤗)
 
 1. Declrative: Describe your desired state of machines
-2. Imprative: describe the steps that have to be taken to build that desired state of machines. 
+2. Imprative: describe the steps that have to be taken to build that desired state of machines.
 
 ## Conclusion
 
@@ -74,6 +74,25 @@ My microservice application will contain these building blocks (they will not co
 2. product service that manages all products (written in go)
 3. order service that handles all orders-related requests (written in java spring)
 
+So, I finished the required applications and they are all functional and have their own `Dockerfile` and `README.md`. you can find them inside the `eshop` folder.
+
+## Third Step
+
+Now I have all the needed code to build my microservice application and they are all dockerized and I am going to use docker driver of the terraform to deploy my applications in docker platform.
+you can find all the needed configuration inside terraform-docker folder. If you want to run this stack using terraform and docker you should install terra form in you system by using [this instruction](https://developer.hashicorp.com/terraform/downloads?product_intent=terraform).
+
+and then run bellow commands to run the stack:
+> terraform init
+> terraform validate
+> terraform apply
+
+and if you want to undo all the changes that are mde by `apply` command just use:
+> terraform destroy
+
+## Fourth Step
+
+We created the docker configuration so far and it was very pleasurable jurney for me. but I wand to configure this stack to run in *K8S*. Installing K8S on the laptop is not a good idea because of its resource consumpation, but we have another option to use and that option is *MicroK8s*. It is lightwaight and almost can provide all functionalities of the *K8s* even clustring. So, I will start my next step by installing MicroK8s on my laptop and then we will create a terraform configuration for *K8s*. form more details you can refer to re references section.
+
 -----
 
 References:
@@ -86,3 +105,5 @@ References:
 - <https://go.dev/doc/tutorial/web-service-gin>
 - <https://github.com/swaggo/gin-swagger>
 - <https://www.acuriousanimal.com/blog/20181020/express-swagger-doc>
+- <https://microk8s.io/docs/getting-started>
+- <https://github.com/balchua/do-microk8s>
