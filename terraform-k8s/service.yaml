@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iac-user-deployment
+  labels:
+    app: iac-user
+spec:
+  selector:
+    matchLabels:
+      app: iac-user
+  template:
+    metadata:
+      labels:
+        app: iac-user
+    spec:
+      containers:
+      - name: k8s-iac-user
+        image: localhost:32000/user-service:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
