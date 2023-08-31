@@ -68,30 +68,30 @@ I will start with docker and then I will continue on K8S 😃
 ## Second Step
 
 I need to create multiple services and then create some docker images based on those services and finally run this mesh of services using IaC:
-My microservice application will contain these building blocks (they will not connect to database at first step but may I add database persistanse abilty to them in the future):
+My microservice application will contain these building blocks (they will not connect to the database at the first step but may I add database persistence abilty to them in the future):
 
-1. User service that is responsible for maintaining users (written in python)
-2. product service that manages all products (written in go)
-3. order service that handles all orders-related requests (written in java spring)
+1. User service that is responsible for maintaining users (written in Python)
+2. Product service that manages all products (written in go)
+3. Order service that handles all orders-related requests (written in Nodejs)
 
 So, I finished the required applications and they are all functional and have their own `Dockerfile` and `README.md`. you can find them inside the `eshop` folder.
 
 ## Third Step
 
-Now I have all the needed code to build my microservice application and they are all dockerized and I am going to use docker driver of the terraform to deploy my applications in docker platform.
-you can find all the needed configuration inside terraform-docker folder. If you want to run this stack using terraform and docker you should install terra form in you system by using [this instruction](https://developer.hashicorp.com/terraform/downloads?product_intent=terraform).
+Now I have all the needed code to build my microservice application and they are all dockerized I am going to use the docker driver of the terraform to deploy my applications in the docker platform.
+you can find all the needed configuration inside the terraform-docker folder. If you want to run this stack using terraform and docker you should install terraform in your system by using [this instruction](https://developer.hashicorp.com/terraform/downloads?product_intent=terraform).
 
-and then run bellow commands to run the stack:
+and then run the below commands to run the stack:
 > terraform init
 > terraform validate
 > terraform apply
 
-and if you want to undo all the changes that are mde by `apply` command just use:
+and if you want to undo all the changes that are made by the `apply` command just use:
 > terraform destroy
 
 ## Fourth Step
 
-We created the docker configuration so far and it was very pleasurable jurney for me. but I wand to configure this stack to run in *K8S*. Installing K8S on the laptop is not a good idea because of its resource consumpation, but we have another option to use and that option is *MicroK8s*. It is lightwaight and almost can provide all functionalities of the *K8s* even clustring. So, I will start my next step by installing MicroK8s on my laptop and then we will create a terraform configuration for *K8s*. form more details you can refer to re references section.
+We created the docker configuration so far and it was a very pleasurable journey for me. but I want to configure this stack to run in *K8S*. Installing K8S on the laptop is not a good idea because of its resource consumption, but we have another option to use and that option is *MicroK8s*. It is lightweight and almost can provide all functionalities of the *K8s* even clustering. So, I will start my next step by installing MicroK8s on my laptop and then we will create a terraform configuration for *K8s*. for more details, you can refer to re references section.
 
 -----
 
