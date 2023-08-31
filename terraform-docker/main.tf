@@ -68,7 +68,7 @@ resource "docker_image" "order_service" {
 resource "docker_container" "iac_order_service" {
   image = docker_image.order_service.name
   name  = "iac_order_service"
-  env   = ["PORT=3000", "USER_API_ADDRESS=http://iac_product_service:8000", "PRODUCT_API_ADDRESS=http://iac_product_service:8080"]
+  env   = ["PORT=3000", "USER_API_ADDRESS=http://iac_user_service:8000", "PRODUCT_API_ADDRESS=http://iac_product_service:8080"]
   networks_advanced {
     name = docker_network.private_network.name
   }

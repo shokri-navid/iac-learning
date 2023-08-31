@@ -15,8 +15,8 @@ app.use(express.json());
 app.post("/orders", async (req: Request, response: Response) => {
     let orderReq : AddOrderRequest = req.body;
     
-    var errors : string[] = [];  
-    
+    var errors : string[] = [];
+
     axios.get(`${process.env.USER_API_ADDRESS}/users/${orderReq.userId}`)
     .then((res: AxiosResponse) =>{
 
