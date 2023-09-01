@@ -1,17 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: iac-user-deployment
+  name: user-app
+  #namespace: iac-learning
   labels:
-    app: iac-user
+    app: user-app
 spec:
+  replicas: 3
   selector:
     matchLabels:
-      app: iac-user
+      app: user-app
   template:
     metadata:
       labels:
-        app: iac-user
+        app: user-app
     spec:
       containers:
       - name: k8s-iac-user

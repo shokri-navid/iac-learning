@@ -120,3 +120,6 @@ References:
 - <https://microk8s.io/docs/getting-started>
 - <https://github.com/balchua/do-microk8s>
 - <https://kubernetes.io/docs/tutorials/kubernetes-basics/>
+- <https://alesnosek.com/blog/2017/02/14/accessing-kubernetes-pods-from-outside-of-the-cluster/>
+- <https://phoenixnap.com/kb/microk8s-ingress>
+- <https://mswis.com/configure-microk8s-kubernetes-load-balancer-with-tls/>
