@@ -93,6 +93,18 @@ and if you want to undo all the changes that are made by the `apply` command jus
 
 We created the docker configuration so far and it was a very pleasurable journey for me. but I want to configure this stack to run in *K8S*. Installing K8S on the laptop is not a good idea because of its resource consumption, but we have another option to use and that option is *MicroK8s*. It is lightweight and almost can provide all functionalities of the *K8s* even clustering. So, I will start my next step by installing MicroK8s on my laptop and then we will create a terraform configuration for *K8s*. for more details, you can refer to re references section.
 
+So my k8s configuration finished and I create this structure using added yaml file.
+
+1- Ingress service `to handle incomming request into K8S cluster and direct them to desired ingress.`
+2- One ingress for each applications (order - product - user) to manage incomming request and forward it to the service.
+3- One service for each application to handle incomming request to the application deployments.
+4- One deployment for each apllication that watch the state of the pods inside deployment and ensure that they are running and scaled to 3 pods.
+
+You can runn all of them by executing below command:
+  > kubectl apply -k /terraform-k8s
+
+The hello world folder is a simple application to run and expose port 80 to outside of the K8s cluster. according to reference #14.
+
 ### Points
 
 1- k8s cannot pull image from local docker registry and you should register you local insecure registry address by reading [this link] (https://microk8s.io/docs/registry-private). *you can use localhost instead of mentioned IP.*
@@ -121,17 +133,17 @@ microk8s enable ingress
 
 References:
 
-- <https://www.redhat.com/en/topics/automation/what-is-infrastructure-as-code-iac>
-- <https://opensource.com/article/19/3/home-lab>
-- <https://opensource.com/article/19/7/infrastructure-code>
-- <https://sweetcode.io/leverage-terraform-to-automate-docker-images-and-container-builds>
-- <https://github.com/localstack/localstack>
-- <https://go.dev/doc/tutorial/web-service-gin>
-- <https://github.com/swaggo/gin-swagger>
-- <https://www.acuriousanimal.com/blog/20181020/express-swagger-doc>
-- <https://microk8s.io/docs/getting-started>
-- <https://github.com/balchua/do-microk8s>
-- <https://kubernetes.io/docs/tutorials/kubernetes-basics/>
-- <https://alesnosek.com/blog/2017/02/14/accessing-kubernetes-pods-from-outside-of-the-cluster/>
-- <https://phoenixnap.com/kb/microk8s-ingress>
-- <https://mswis.com/configure-microk8s-kubernetes-load-balancer-with-tls/>
+1- <https://www.redhat.com/en/topics/automation/what-is-infrastructure-as-code-iac>
+2- <https://opensource.com/article/19/3/home-lab>
+3- <https://opensource.com/article/19/7/infrastructure-code>
+4- <https://sweetcode.io/leverage-terraform-to-automate-docker-images-and-container-builds>
+5- <https://github.com/localstack/localstack>
+6- <https://go.dev/doc/tutorial/web-service-gin>
+7- <https://github.com/swaggo/gin-swagger>
+8- <https://www.acuriousanimal.com/blog/20181020/express-swagger-doc>
+9- <https://microk8s.io/docs/getting-started>
+10- <https://github.com/balchua/do-microk8s>
+11- <https://kubernetes.io/docs/tutorials/kubernetes-basics/>
+12- <https://alesnosek.com/blog/2017/02/14/accessing-kubernetes-pods-from-outside-of-the-cluster/>
+13- <https://phoenixnap.com/kb/microk8s-ingress>
+14- <https://mswis.com/configure-microk8s-kubernetes-load-balancer-with-tls/>
