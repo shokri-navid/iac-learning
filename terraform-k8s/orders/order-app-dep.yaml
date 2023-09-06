@@ -27,4 +27,4 @@ spec:
         - name: "USER_API_ADDRESS"
           value: "http://user-service.iac-learning.svc.cluster.local:8000"
         - name: "PRODUCT_API_ADDRESS"
-          value: "http://product-service.iac-learning.svc.cluster.local:8000"
+          value: "http://product-service.iac-learning.svc.cluster.local:8080"
