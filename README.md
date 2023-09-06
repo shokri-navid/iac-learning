@@ -10,7 +10,7 @@ I want to start a self-learning course (based on my own R&D, not any specific on
  list (GO lang, Python, NodeJs, JAVA, or maybe Rust) this helps me to learn some new programming languages and pushes me more out of my comfort zone 😜
 - Because I am living in Iran and as Iranian modern humans we are faced with a long list of sanctions and restrictions there is no real cloud service provider available 💥
 - According to the previous item I should learn How I compose a cloud system on my local machine. maybe using K8s. But I do not know exactly I will share the result in the future 😄
-- After finding that running the cloud on the local machine is possible or not I will start my development phase: 🎉
+- After finding out whether running the cloud on the local machine is possible or not I will start my development phase: 🎉
   - I will create multiple services using the mentioned programming language those are listed above.
   - Then We should make them ready to auto-deploy on the cloud system. I have no idea yet may I should dockerize them or use other tools.
   - Then I will try to build that f**king mythical cloud engine on my laptop.
@@ -43,14 +43,14 @@ IaC puts these benefits on the table:
 - Improve infrastructure consistency
 - Eliminate configuration drift
   
-So there is two approach for implementing your desired mesh of machines: (When I am talking about machine I mean Machines with all kind of prerequisites those are necessary to provide the final service to the beloved customer 🤗)
+So there are two approaches for implementing your desired mesh of machines: (When I am talking about the machine I mean Machines with all kinds of prerequisites that are necessary to provide the final service to the beloved customer 🤗)
 
 1. Declrative: Describe your desired state of machines
-2. Imprative: describe the steps that have to be taken to build that desired state of machines.
+2. Imprative: Describe the steps that have to be taken to build that desired state of machines.
 
 ## Conclusion
 
-So, After a while of researching and surfing the internet, I found that there is a lot of IaC tools available:
+So, After a while of researching and surfing the internet, I found that there are a lot of IaC tools available:
 
 1. terraform
 2. Ansible
@@ -68,7 +68,7 @@ I will start with docker and then I will continue on K8S 😃
 ## Second Step
 
 I need to create multiple services and then create some docker images based on those services and finally run this mesh of services using IaC:
-My microservice application will contain these building blocks (they will not connect to the database at the first step but may I add database persistence abilty to them in the future):
+My microservice application will contain these building blocks (they will not connect to the database at the first step but may I add database persistence ability to them in the future):
 
 1. User service that is responsible for maintaining users (written in Python)
 2. Product service that manages all products (written in go)
@@ -91,23 +91,23 @@ and if you want to undo all the changes that are made by the `apply` command jus
 
 ## Fourth Step
 
-We created the docker configuration so far and it was a very pleasurable journey for me. but I want to configure this stack to run in *K8S*. Installing K8S on the laptop is not a good idea because of its resource consumption, but we have another option to use and that option is *MicroK8s*. It is lightweight and almost can provide all functionalities of the *K8s* even clustering. So, I will start my next step by installing MicroK8s on my laptop and then we will create a terraform configuration for *K8s*. for more details, you can refer to re references section.
+We created the docker configuration so far and it was a very pleasurable journey for me. but I want to configure this stack to run in *K8S*. Installing K8S on the laptop is not a good idea because of its resource consumption, but we have another option to use and that option is *MicroK8s*. It is lightweight and almost can provide all functionalities of the *K8s* even clustering. So, I will start my next step by installing MicroK8s on my laptop and then we will create a terraform configuration for *K8s*. for more details, you can refer to the references section.
 
-So my k8s configuration finished and I create this structure using added yaml file.
+So my k8s configuration finished and I created this structure using all added YAML files.
 
-1- Ingress service `to handle incomming request into K8S cluster and direct them to desired ingress.`
-2- One ingress for each applications (order - product - user) to manage incomming request and forward it to the service.
-3- One service for each application to handle incomming request to the application deployments.
-4- One deployment for each apllication that watch the state of the pods inside deployment and ensure that they are running and scaled to 3 pods.
+1- Ingress service `to handle incoming requests into K8S cluster and direct them to the desired ingress.`
+2- One ingress for each application (order - product - user) to manage the incoming request and forward it to the service.
+3- One service for each application to handle incoming requests to the application deployments.
+4- One deployment for each application that watches the state of the pods inside deployment and ensures that they are running and scaled to 3 pods.
 
-You can runn all of them by executing below command:
+You can run all of them by executing the below command:
   > kubectl apply -k /terraform-k8s
 
-The hello world folder is a simple application to run and expose port 80 to outside of the K8s cluster. according to reference #14.
+The Hello World folder is a simple application to run and expose port 80 outside of the K8s cluster. according to reference #14.
 
 ### Points
 
-1- k8s cannot pull image from local docker registry and you should register you local insecure registry address by reading [this link] (https://microk8s.io/docs/registry-private). *you can use localhost instead of mentioned IP.*
+1- k8s cannot pull images from the local docker registry and you should register your local insecure registry address by reading [this link] (https://microk8s.io/docs/registry-private). *You can use localhost instead of the mentioned IP.*
 
 2- You should enable your own microk8s image registery accordong to [this link](https://stackoverflow.com/questions/55297278/how-to-use-local-docker-images-with-microk8s)
 
@@ -117,13 +117,13 @@ The hello world folder is a simple application to run and expose port 80 to outs
   docker push localhost:32000/<imageName:version>
 ```
 
-3- there is no load balancer service in k8s and Microk8s by default and always we shoul install ours. but the K8s team include an metallb that play this role for us. we can enable thi pluging by:
+3- There is no load balancer service in K8s and Microk8s by default; we should always install ours. but the K8s team includes a Metallb that plays this role for us. we can enable this plugin by:
 
 ``` bash
 microk8s enable metallb
 ```
 
-also you should enable ingress plugin too by:
+also, you should enable the ingress plugin by:
 
 ```bash
 microk8s enable ingress
