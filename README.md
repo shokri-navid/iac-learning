@@ -105,6 +105,18 @@ We created the docker configuration so far and it was a very pleasurable journey
   docker push localhost:32000/<imageName:version>
 ```
 
+3- there is no load balancer service in k8s and Microk8s by default and always we shoul install ours. but the K8s team include an metallb that play this role for us. we can enable thi pluging by:
+
+``` bash
+microk8s enable metallb
+```
+
+also you should enable ingress plugin too by:
+
+```bash
+microk8s enable ingress
+```
+
 -----
 
 References:

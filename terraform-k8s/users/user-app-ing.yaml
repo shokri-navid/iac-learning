@@ -2,17 +2,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: user-ingress
-  #namespace: iac-learning
-  labels:
-    name: user-ingress
-
+  namespace: iac-learning
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: localhost
+  - host: user.local
     http:
       paths:
       - pathType: Prefix
-        path: "/user"
+        path: "/"
         backend:
           service:
             name: user-service

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-app
+  namespace: iac-learning
+  labels:
+    app: product-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: product-app
+  template:
+    metadata:
+      labels:
+        app: product-app
+    spec:
+      containers:
+      - name: k8s-iac-product
+        image: localhost:32000/product_service:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080

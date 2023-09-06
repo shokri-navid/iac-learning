@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-app
+  namespace: iac-learning
+  labels:
+    app: order-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: order-app
+  template:
+    metadata:
+      labels:
+        app: order-app
+    spec:
+      containers:
+      - name: k8s-iac-order
+        image: localhost:32000/order_service:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+        env:
+        - name: PORT
+          value: "3000"
+        - name: "USER_API_ADDRESS"
+          value: "http://user-service.iac-learning.svc.cluster.local:8000"
+        - name: "PRODUCT_API_ADDRESS"
+          value: "http://product-service.iac-learning.svc.cluster.local:8000"

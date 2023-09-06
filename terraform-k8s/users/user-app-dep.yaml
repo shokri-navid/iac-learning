@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: user-app
-  #namespace: iac-learning
+  namespace: iac-learning
   labels:
     app: user-app
 spec:
