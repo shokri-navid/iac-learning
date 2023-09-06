@@ -107,7 +107,7 @@ The Hello World folder is a simple application to run and expose port 80 outside
 
 ### Points
 
-1- k8s cannot pull images from the local docker registry and you should register your local insecure registry address by reading [this link] (https://microk8s.io/docs/registry-private). *You can use localhost instead of the mentioned IP.*
+1- k8s cannot pull images from the local docker registry and you should register your local insecure registry address by reading [this link](https://microk8s.io/docs/registry-private). *You can use localhost instead of the mentioned IP.*
 
 2- You should enable your own microk8s image registery accordong to [this link](https://stackoverflow.com/questions/55297278/how-to-use-local-docker-images-with-microk8s)
 
@@ -147,3 +147,4 @@ References:
 12- <https://alesnosek.com/blog/2017/02/14/accessing-kubernetes-pods-from-outside-of-the-cluster/>
 13- <https://phoenixnap.com/kb/microk8s-ingress>
 14- <https://mswis.com/configure-microk8s-kubernetes-load-balancer-with-tls/>
+15- <https://kind.sigs.k8s.io/docs/user/quick-start>
