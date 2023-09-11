@@ -26,7 +26,7 @@ resource "kubernetes_service" "ingress_user" {
       name = "nginx-ingress-microk8s"
     }
     port {
-      name = "user-http"
+      name        = "user-http"
       protocol    = "TCP"
       port        = 80
       target_port = 8000
@@ -46,10 +46,30 @@ resource "kubernetes_service" "ingress_product" {
       name = "nginx-ingress-microk8s"
     }
     port {
-      name = "user-http"
+      name        = "user-http"
       protocol    = "TCP"
       port        = 80
       target_port = 8080
+    }
+
+    type = "LoadBalancer"
+  }
+}
+
+resource "kubernetes_service" "ingress_order" {
+  metadata {
+    name      = "ingress-order"
+    namespace = "ingress"
+  }
+  spec {
+    selector = {
+      name = "nginx-ingress-microk8s"
+    }
+    port {
+      name        = "order-http"
+      protocol    = "TCP"
+      port        = 80
+      target_port = 3000
     }
 
     type = "LoadBalancer"
@@ -216,6 +236,106 @@ resource "kubernetes_ingress_v1" "product-ingress" {
               name = "product-service"
               port {
                 number = 8080
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+# order app
+resource "kubernetes_deployment" "order-app" {
+  metadata {
+    name      = "order-app"
+    namespace = "iac-learning"
+    labels = {
+      app = "order-app"
+    }
+  }
+
+  spec {
+    replicas = 3
+
+    selector {
+      match_labels = {
+        app = "order-app"
+      }
+    }
+
+    template {
+      metadata {
+        labels = {
+          app = "order-app"
+        }
+      }
+
+      spec {
+        container {
+          image = "localhost:32000/order_service:latest"
+          name  = "order-app"
+          port {
+            container_port = 3000
+          }
+          env {
+            name  = "PORT"
+            value = "3000"
+          }
+
+          env {
+            name  = "USER_API_ADDRESS"
+            value = "http://user-service.iac-learning.svc.cluster.local:8000"
+          }
+
+          env {
+            name  = "PRODUCT_API_ADDRESS"
+            value = "http://product-service.iac-learning.svc.cluster.local:8080"
+          }
+        }
+      }
+    }
+  }
+}
+
+resource "kubernetes_service" "order-service" {
+  metadata {
+    name      = "order-service"
+    namespace = "iac-learning"
+  }
+  spec {
+    selector = {
+      app = "order-app"
+    }
+    port {
+      port        = 3000
+      target_port = 3000
+    }
+    type = "NodePort"
+  }
+}
+
+resource "kubernetes_ingress_v1" "order-ingress" {
+  metadata {
+    name      = "order-ingress"
+    namespace = "iac-learning"
+    annotations = {
+      "nginx.ingress.kubernetes.io/rewrite-target" = "/"
+    }
+  }
+
+  spec {
+    rule {
+      host = "order.local"
+      http {
+        path {
+          path = "/"
+          backend {
+            service {
+              name = "order-service"
+              port {
+                number = 3000
               }
             }
           }
