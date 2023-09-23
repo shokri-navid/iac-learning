@@ -148,3 +148,4 @@ References:
 13- <https://phoenixnap.com/kb/microk8s-ingress>
 14- <https://mswis.com/configure-microk8s-kubernetes-load-balancer-with-tls/>
 15- <https://kind.sigs.k8s.io/docs/user/quick-start>
+16- <https://codetinkering.com/localstack-s3-lambda-example-docker/>
